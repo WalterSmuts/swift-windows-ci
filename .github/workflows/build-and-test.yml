@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Setup swift
-      uses: compnerd/gha-setup-swift@main
+      uses: WalterSmuts/gha-setup-swift@main
       with:
         branch: swift-5.8.1-release
         tag: 5.8.1-RELEASE
