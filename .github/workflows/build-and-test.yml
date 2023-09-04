@@ -1,0 +1,25 @@
+name: Build and test
+
+on: [push]
+
+jobs:
+  build-native-windows:
+    name: "Native, no testing: windows-latest/release"
+    strategy:
+      fail-fast: false
+    runs-on: windows-latest
+    steps:
+    - name: Setup swift
+      uses: compnerd/gha-setup-swift@main
+      with:
+        branch: swift-5.8.1-release
+        tag: 5.8.1-RELEASE
+
+    - uses: actions/checkout@v3
+
+    - name: Swift version
+      run: swift --version
+
+    - name: Build (Release)
+      id: build
+      run: swift build -v -c release
